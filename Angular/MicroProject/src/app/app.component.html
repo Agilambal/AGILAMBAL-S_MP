@@ -1,0 +1,146 @@
+
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" />
+<div class="head"><h1>PATIENT MANGEMENT SYSTEM</h1></div>
+   <div class="right">
+    <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-10">
+                             <form #myForm="ngForm">
+                                <div class="form-group">
+                                    <label for="Patient Id">
+                                        Patient Id
+                                    </label>
+                                    <input type="text" 
+                                           class="form-control" 
+                                           name="id" 
+                                           #id="ngModel" ngModel
+                                           required
+                                           pattern="[0-9]+"
+
+                                           
+                                            />
+                                </div>
+                                <div *ngIf="id.touched">
+                                  <div *ngIf="id.errors?.['required']">
+                                    <b style="color: red;">Patient Id is Required.</b>
+
+                                  </div>
+                                  <div *ngIf="id.errors?.['pattern']">
+                                    <b color="red"><b>Invalid Patient Id.</b></b>
+                                  </div>
+                                </div>
+
+
+
+
+                                <div class="form-group">
+                                    <label for="Patient Name">
+                                        Patient Name
+                                    </label>
+                                    <input type="text" 
+                                           class="form-control" 
+                                           name="patName" 
+                                           #patName="ngModel" ngModel
+                                           required
+                                           pattern="[A-Z,a-z]+"
+                                            />
+                                </div>
+
+                                <div *ngIf="patName.touched">
+                                  <div *ngIf="patName.errors?.['required']">
+                                    <b style="color: red;">Patient Name is Required.</b>
+
+                                  </div>
+                                  <div *ngIf="patName.errors?.['pattern']">
+                                    <b color="red"><b>Invalid Patient Name.</b></b>
+                                  </div>
+                                </div>
+
+
+                                <div class="form-group">
+                                    <label for="Patient Age">
+                                        Patient Age
+                                    </label>
+                                    <input type="text" 
+                                           class="form-control" 
+                                           name="patAge" 
+                                           #patAge="ngModel" ngModel
+                                           required
+                                           pattern="[0-9]+"
+                                           />
+                                </div>
+                                          
+                                <div *ngIf="patAge.touched">
+                                  <div *ngIf="patAge.errors?.['required']">
+                                    <b style="color: red;">Patient Age is Required.</b>
+
+                                  </div>
+                                  <div *ngIf="patAge.errors?.['pattern']">
+                                    <b color="red"><b>Invalid Patient Age .</b></b>
+                                  </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="Phone No">
+                                        Patient No
+                                    </label>
+                                    <input type="text" 
+                                           class="form-control" 
+                                           name="patNo" 
+                                           #patNo="ngModel" ngModel
+                                           required
+                                           pattern="[0-9]+"
+                                            />
+                                </div>
+
+                                <div *ngIf="patNo.touched">
+                                  <div *ngIf="patNo.errors?.['required']">
+                                    <b style="color: red;">Phone Number is Required.</b>
+
+                                  </div>
+                                  <div *ngIf="patNo.errors?.['pattern']">
+                                    <b color="red"><b>Invalid Phone Number.</b></b>
+                                  </div>
+                                </div>
+
+
+
+
+                                <button class="btn btn-success" (click)="insertPatient(myForm.value)">
+                                    Insert 
+                                </button>
+                            &nbsp;&nbsp;
+                                <button class="btn btn-primary" (click)="updatePatient(myForm.value)" >
+                                    Update 
+                                </button>&nbsp;&nbsp;
+                                <button class="btn btn-danger" (click)="deletePatient(myForm.value)">
+                                    Delete 
+                                </button>&nbsp;&nbsp;
+                                <button class="btn btn-warning" (click)="findPatient(myForm.value)">
+                                    Find 
+                                </button>
+                                &nbsp;&nbsp;
+                                <button class="btn btn-info" (click)="findAllPatient()">
+                                    Find All
+                                </button>
+                            </form>
+                            
+                        </div>
+                    </div>
+                </div>
+         <br>
+         <h3>{{result}}</h3>
+     <br>
+     <br>
+     <br>
+     <br>
+         <div style="width: 100%; " *ngIf="flag">
+          <table width="50%" align="center" class="table table-borderd" style="background-color: plum;">
+           <tr><th style="background-color: pink;">Patient Id</th><th style="background-color: pink;">Patient Name</th><th style="background-color: pink;">Patient Salary</th><th style="background-color: pink;">Patient No</th></tr> 
+            <tr *ngFor="let pat of patientArr">
+                <td> {{pat.id}} </td><td> {{pat.patName}} </td><td> {{pat.patAge}} </td><td> {{pat.patNo}} </td>
+            </tr>
+         </table>
+         </div>
+       
+       

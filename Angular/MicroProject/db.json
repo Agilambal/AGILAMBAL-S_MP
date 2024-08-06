@@ -1,0 +1,28 @@
+{
+  "patient": [
+    {
+      "id": "001",
+      "patName": "Agi",
+      "patAge": 20,
+      "patNo": 3652148966
+    },
+    {
+      "id": "009",
+      "patName": "Deepak",
+      "patAge": "20",
+      "patNo": "40000"
+    },
+    {
+      "id": "023",
+      "patName": "Jegan",
+      "patAge": "20",
+      "patNo": "867345155"
+    },
+    {
+      "id": "035",
+      "patName": "Pavi",
+      "patAge": "21",
+      "patNo": "9658432513"
+    }
+  ]
+}
